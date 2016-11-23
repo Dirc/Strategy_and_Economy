@@ -4,9 +4,7 @@ Created on 9 sep. 2015
 @author: Samsung
 '''
 
-import os
 from libs.config import Config
-from msilib.schema import ReserveCost
 
 config = Config()
 
@@ -51,13 +49,14 @@ class Man:
 # Subclasses of Man
 class Peassant(Man):
     
-    def __init__(self):
+    def __init__(self, non_used_option=None):
         Man.__init__(self, config.getConfig("peassantdef","food"),
                            config.getConfig("peassantdef","wood"),
                            config.getConfig("peassantdef","eat"),
                            config.getConfig("peassantdef","offense"),
                            config.getConfig("peassantdef","defense"),
                            config.getConfig("peassantdef","greating") )
+        self.dummy = non_used_option
 
     def produce(self):
         pass
@@ -75,19 +74,24 @@ class Spearman(Man):
         
 # Super class
 class Building:
-    def __init__(self, cost, offense, defense):
-        self.cost    = cost 
+    def __init__(self, wood, stone, offense, defense):
+        self.wood    = wood
+        self.stone   = stone
         self.offense = offense
         self.defense = defense
+        self.cost    = [self.wood, self.stone]
         
     def attack(self):
         return self.offense, self.defense    
         
 
 class House(Building):
-    def __init__(self, room):
-        Building.__init__(self, cost, offense, defense)
-        self.room = room
+    def __init__(self):
+        Building.__init__(self, config.getConfig("house","wood"),
+                                config.getConfig("house","stone"),
+                                config.getConfig("house","offense"),
+                                config.getConfig("house","defense"),)
+        self.room = config.getConfig("house","room")
 
 
         
