@@ -9,16 +9,6 @@ from libs.config import Config
 config = Config()
 
 
-spearmandef = ([2,2],1,5,2, "Yes sire, we can fight") 
-#citizensdef = [peassantdef, spearmandef]
-
-#Define buildings (cost, room, offense, defense)
-housedef = (10, 5, 0, 0)
-
-#Define crafts (produce, )
-woodcutterprod = 2
-
-
 # Super class
 class Man:    
     def __init__(self, food, wood, eat, offense, defense, greating):
@@ -64,9 +54,15 @@ class Peassant(Man):
 
 
 class Spearman(Man):
-    def __init__(self):
-        #Man.__init__(self, peassantdef[0], peassantdef[1], peassantdef[2], peassantdef[3], peassantdef[4])
-        Man.__init__(self, *spearmandef)
+
+    def __init__(self, non_used_option=None):
+        Man.__init__(self, config.getConfig("peassantdef","food"),
+                           config.getConfig("peassantdef","wood"),
+                           config.getConfig("peassantdef","eat"),
+                           config.getConfig("peassantdef","offense"),
+                           config.getConfig("peassantdef","defense"),
+                           config.getConfig("peassantdef","greating") )
+        self.dummy = non_used_option
         
     def fight(self):
         pass
@@ -93,7 +89,6 @@ class House(Building):
                                 config.getConfig("house","defense"),)
         self.room = config.getConfig("house","room")
 
-
+    def add(self):
+        pass
         
-        
-            
