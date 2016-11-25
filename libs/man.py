@@ -1,7 +1,7 @@
 '''
 Created on 9 sep. 2015
 
-@author: Samsung
+@author: Dirc
 '''
 
 from libs.config import Config
@@ -46,11 +46,18 @@ class Peassant(Man):
                            config.getConfig("peassantdef","offense"),
                            config.getConfig("peassantdef","defense"),
                            config.getConfig("peassantdef","greating") )
+        self.function = "unemployed"
+        
         self.dummy = non_used_option
 
+    def setFunction(self,new_function):
+        self.function = new_function
+    
+    def getFunction(self):
+        return self.function
+            
     def produce(self):
         pass
-
 
 
 class Spearman(Man):
@@ -66,29 +73,3 @@ class Spearman(Man):
         
     def fight(self):
         pass
-
-        
-# Super class
-class Building:
-    def __init__(self, wood, stone, offense, defense):
-        self.wood    = wood
-        self.stone   = stone
-        self.offense = offense
-        self.defense = defense
-        self.cost    = [self.wood, self.stone]
-        
-    def attack(self):
-        return self.offense, self.defense    
-        
-
-class House(Building):
-    def __init__(self):
-        Building.__init__(self, config.getConfig("house","wood"),
-                                config.getConfig("house","stone"),
-                                config.getConfig("house","offense"),
-                                config.getConfig("house","defense"),)
-        self.room = config.getConfig("house","room")
-
-    def add(self):
-        pass
-        

@@ -3,7 +3,7 @@ Created on 9 sep. 2015
 
 @author: Samsung
 '''
-from libs import class_lib
+from libs import man
 from libs import helper_functions
 
 # Global and initial variables
@@ -52,7 +52,7 @@ def startGame():
     building_grouplist = [house_grp]
     
     # Start citizens
-    peassant = class_lib.Peassant
+    peassant = man.Peassant
     peassant_grp.add(peassant)
         
     print "Welcome in your village!"
@@ -110,18 +110,18 @@ def action():
             # Pay cost
             stock[1] -= peassantdef[0]
             # Create
-            peassant = class_lib.Man(*peassantdef)
+            peassant = man.Man(*peassantdef)
             peassant_grp.add(peassant)
             # Message
             print "We have a new peassant in our village\n"
         elif choice == "2":
             stock[1] -= spearmandef[0]
-            spearman = class_lib.Man(*spearmandef)
+            spearman = man.Man(*spearmandef)
             spearman_grp.add(spearman)
             print "Good, we can use new strong spearman!\n"
         elif choice == "3":
             stock[1] -= housedef[0]
-            house = class_lib.Building(*housedef)
+            house = man.Building(*housedef)
             house_grp.add(house)
             print "We have build a new house.\n"
         elif choice == "4":
@@ -129,7 +129,7 @@ def action():
                 print "Sorry, not enough peassants available"
             else:
                 peassant_grp.pop()
-                peassant = class_lib.Man(*peassantdef)
+                peassant = man.Man(*peassantdef)
                 woodcutter_grp.add(peassant)
                 print "New woodcutter! Number of peassant left: " + str(len(peassant_grp)) 
         else:

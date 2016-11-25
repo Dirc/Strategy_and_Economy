@@ -3,7 +3,7 @@ Created on 9 sep. 2015
 
 @author: Samsung
 '''
-from libs.class_lib import Peassant
+from libs.man import Peassant
 
 
 print "\n-----------\n"

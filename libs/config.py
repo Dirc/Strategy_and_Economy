@@ -25,6 +25,9 @@ class Config(object):
     
     def infoConfig(self):
         return self.app_base, self.conf_file
+    
+    def getSections(self):
+        return self.config.sections()
 
 
 if __name__ == "__main__":

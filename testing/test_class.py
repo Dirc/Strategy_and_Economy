@@ -4,7 +4,7 @@ Created on 23 nov. 2016
 @author: Eric Cornet
 '''
 import unittest
-from libs.class_lib import Peassant, House
+from libs.man import Peassant, House
 
 
 class Test(unittest.TestCase):

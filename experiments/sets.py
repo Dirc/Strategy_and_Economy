@@ -4,15 +4,15 @@ Created on 7 feb. 2016
 @author: Eric Cornet
 '''
 
-from libs import class_lib
+from libs import man
 
 peassant_grp = set([])
 woodcutter_grp = set([])
 
 # Start citizens
-peassant = class_lib.Peassant
+peassant = man.Peassant
 peassant_grp.add(peassant)
-peassant = class_lib.Peassant
+peassant = man.Peassant
 peassant_grp.add(peassant)
 
 print len(peassant_grp)
