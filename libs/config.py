@@ -4,7 +4,7 @@ Created on 25 jan. 2016
 @author: Dirc
 
 TODO:
-- add main function
+- 
 '''
 
 import os

@@ -1,3 +1,3 @@
-# Strategy and Economie
+# Strategy and Economy
 
 in progress
